@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies and generate coverage
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-cov
+          pip install --only-binary :all: pytest==8.3.2 pytest-cov==5.0.0
           python -m pytest --cov=. --cov-report=xml
 
       - name: SonarCloud Scan
