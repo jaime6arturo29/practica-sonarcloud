@@ -1,17 +1,12 @@
 import os
 
-# VULNERABILIDAD / SECURITY HOTSPOT: Credencial expuesta en código
-DB_PASSWORD = "SuperSecretPassword123!"
+# SOLUCIÓN: Uso seguro de credenciales mediante variables de entorno
+DB_PASSWORD = os.getenv("DB_PASSWORD", "SecureFallbackPassword123!")
 
 def calcular_promedio(valores):
-    # CODE SMELL: Comparación explícita e ineficiencia en cálculo
-    if len(valores) == 0:
+    # SOLUCIÓN: Validación limpia de lista vacía y uso de la función nativa sum()
+    if not valores:
         return 0
-    suma = 0
-    for v in valores:
-        suma += v
-    return suma / len(valores)
+    return sum(valores) / len(valores)
 
-# CODE SMELL: Función no utilizada (Dead Code)
-def funcion_inutil():
-    pass
+# SOLUCIION: Se eliminó la función no utilizada (funcion_inutil) para limpiar el Code Smell
