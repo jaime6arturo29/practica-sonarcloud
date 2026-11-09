@@ -26,4 +26,5 @@ jobs:
             -Dsonar.organization=jaime6arturo29
             -Dsonar.projectKey=jaime6arturo29_practica-sonarcloud
             -Dsonar.sources=.
+            -Dsonar.tests=test_main.py
             -Dsonar.python.version=3
